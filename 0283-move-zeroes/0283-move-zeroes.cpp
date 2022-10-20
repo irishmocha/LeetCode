@@ -27,7 +27,8 @@ public:
 //         }
         
         /* 3.
-        
+        Runtime: 16 ms, faster than 99.29% of C++ online submissions for Move Zeroes.
+        Memory Usage: 19.3 MB, less than 57.74% of C++ online submissions for Move Zeroes.
         */
         for (int i = 0, j = 0; i < nums.size(); i++) {
             if (nums[i] != 0) {
