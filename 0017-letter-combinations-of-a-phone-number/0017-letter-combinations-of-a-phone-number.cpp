@@ -10,7 +10,7 @@ private:
 
 public:
     vector<string> letterCombinations(string digits) {
-        if(digits.size() != 0){
+        if (digits.size() != 0) {
             generateCombination("", digits, 0);
         }
 
@@ -20,10 +20,11 @@ public:
     void generateCombination(string current, string digits, int index) {
         if(index == digits.size()){
             result.push_back(current);
-        } else {
+        }
+        else {
             char currentDigit = digits[index];
             string mapping = m[currentDigit];
-            for(int i = 0; i < mapping.size(); i++){
+            for(int i = 0; i < mapping.size(); ++i) {
                 generateCombination(current + mapping[i], digits, index+1);
             }
         }
