@@ -1,24 +1,19 @@
 class Solution {
-public:
+private:
     vector<string> ans;
-    int N;
-    void setParenthesis(int L,int lCnt, int useable, string s){
-        
-        if(L == N*2){
-            ans.push_back(s);
-            return;
-        }
-        if(useable>0)
-            setParenthesis(L+1, lCnt, useable-1, s+')');
-        if(lCnt<N)
-            setParenthesis(L+1, lCnt+1, useable+1, s+'(');
+public:
+    void makeParenthesis (int open, int close, string str)
+    {
+        if (open > 0)
+            makeParenthesis(open-1, close, str + "(");
+        if (close > 0 && open < close)
+            makeParenthesis(open, close-1, str + ")");
+        else if (close == 0)
+            ans.push_back(str);
     }
-    
+     
     vector<string> generateParenthesis(int n) {
-        N = n;
-        
-        setParenthesis(0, 0, 0, "");
-        
+        makeParenthesis(n-1, n, "(");
         return ans;
     }
 };
