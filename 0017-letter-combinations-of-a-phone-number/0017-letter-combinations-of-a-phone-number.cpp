@@ -18,7 +18,7 @@ public:
     }
 
     void generateCombination(string current, string digits, int index) {
-        if(index == digits.size()){
+        if(index == digits.size()) {
             result.push_back(current);
         }
         else {
