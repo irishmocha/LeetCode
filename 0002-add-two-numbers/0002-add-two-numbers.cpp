@@ -11,34 +11,26 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* answer = new ListNode();
-		ListNode* answerBegin = answer;
+        ListNode* l3 = new ListNode();
+        ListNode* dummy = l3;
+        int sum = 0;
 
-		answerBegin = answer;
-		int val;
-		while (l1 != nullptr || l2 != nullptr)
-		{
-			val = 0;
-			if (l1 != nullptr)
-			{
-				val += l1->val;
-				l1 = l1->next;
-			}
-			if (l2 != nullptr)
-			{
-				val += l2->val;
-				l2 = l2->next;
-			}
+        while (l1 != nullptr || l2 != nullptr || sum) {
+            if (l1 != nullptr) {
+                sum += l1->val;
+                l1 = l1->next;
+            }
+            if (l2 != nullptr) {
+                sum += l2->val;
+                l2 = l2->next;
+            }
+            
+            l3->next = new ListNode(sum % 10);  // 10의 자리가 넘어가는 경우
+            sum /= 10; // 10이 넘어간 경우 올림수
+            l3 = l3->next;
+        }
 
-			val += answer->val;
-			answer->val = val % 10;
-
-			if (l1 != nullptr || l2 != nullptr || val >= 10)
-			{
-				answer->next = new ListNode(val / 10);
-				answer = answer->next;
-			}
-		}
-		return answerBegin;
+        return dummy->next;
+        
     }
 };
