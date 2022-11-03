@@ -22,7 +22,6 @@ public:
             u[nums[i]] = i;
         }
         
-        
-        return answer;
+        return vector<int>{};
     }
 };
