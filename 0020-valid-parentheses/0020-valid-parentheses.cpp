@@ -8,16 +8,18 @@ public:
                 stk.push(s[i]);
             }
             else {
+                if (stk.empty())
+                    return false;
                 
-                if (!stk.empty()) {
+                // if (!stk.empty()) {
                     if (stk.top() == '(' && s[i] == ')') stk.pop();
                     else if (stk.top() == '{' && s[i] == '}') stk.pop();
                     else if (stk.top() == '[' && s[i] == ']') stk.pop();
                     else stk.push(s[i]);
-                }
-                else {
-                    return false;
-                }
+                // }
+                // else {
+                //     return false;
+                // }
             }
         }
         return stk.empty();
