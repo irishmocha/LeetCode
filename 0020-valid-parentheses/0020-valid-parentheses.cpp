@@ -11,15 +11,10 @@ public:
                 if (stk.empty())
                     return false;
                 
-                // if (!stk.empty()) {
-                    if (stk.top() == '(' && s[i] == ')') stk.pop();
-                    else if (stk.top() == '{' && s[i] == '}') stk.pop();
-                    else if (stk.top() == '[' && s[i] == ']') stk.pop();
-                    else stk.push(s[i]);
-                // }
-                // else {
-                //     return false;
-                // }
+                if (stk.top() == '(' && s[i] == ')') stk.pop();
+                else if (stk.top() == '{' && s[i] == '}') stk.pop();
+                else if (stk.top() == '[' && s[i] == ']') stk.pop();
+                else stk.push(s[i]);
             }
         }
         return stk.empty();
