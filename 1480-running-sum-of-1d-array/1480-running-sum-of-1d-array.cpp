@@ -5,7 +5,6 @@ public:
         // int acc = 0;
         for (int i = 0, acc = 0; i < nums.size(); acc += nums[i], ++i) {
             answer.push_back(acc + nums[i]);
-            // acc += nums[i];
         }
         return answer;
     }
