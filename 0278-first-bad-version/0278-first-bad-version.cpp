@@ -7,14 +7,14 @@ public:
         int lower = 1;
         int upper = n;
         
-        int mid;
+        int version;
         while (lower <= upper) {
-            mid = lower + ((upper - lower) / 2);
-            if (isBadVersion(mid)) {
-                upper = mid - 1;
+            version = lower + ((upper - lower) / 2);
+            if (isBadVersion(version)) {
+                upper = version - 1;
             }
             else {
-                lower = mid + 1;
+                lower = version + 1;
             }
         }
         
