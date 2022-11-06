@@ -7,8 +7,9 @@ public:
         int lower = 1;
         int upper = n;
         
+        int mid;
         while (lower <= upper) {
-            int mid = lower + ((upper - lower) / 2);
+            mid = lower + ((upper - lower) / 2);
             if (isBadVersion(mid)) {
                 upper = mid - 1;
             }
