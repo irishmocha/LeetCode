@@ -17,7 +17,6 @@ public:
             else {
                 upper = index - 1;
             }
-            
         }
         
         return -1;
