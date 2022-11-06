@@ -8,14 +8,14 @@ public:
         vector<int> answer(nums.size(), -1);
         while (lower <= upper) {
             if (abs(nums[lower]) <= abs(nums[upper])) {
-                answer[index] = nums[upper] * nums[upper];
+                answer[index--] = nums[upper] * nums[upper];
                 --upper;
             }
             else {
-                answer[index] = nums[lower] * nums[lower];
+                answer[index--] = nums[lower] * nums[lower];
                 ++lower;
             }
-            --index;
+            // --index;
         }
         
         return answer;
