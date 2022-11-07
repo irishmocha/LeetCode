@@ -32,6 +32,20 @@ public:
     }
     
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        if (image[sr][sc] == color) return image;
+        
+        m = image.size();
+        n = image[0].size();
+        
+        vector<vector<bool>> visited(m, vector<bool>(n, false));
+        
+        dfs(image, sr, sc, color, image[sr][sc], visited);
+        
+        return image;
+    }
+    
+    /*
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         int m = image.size();
         int n = image[0].size();
         queue<pair<int, int>> q;
@@ -55,4 +69,6 @@ public:
         }
         return image;
     }
+    */
+    
 };
