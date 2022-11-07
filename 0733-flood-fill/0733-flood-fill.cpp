@@ -15,13 +15,10 @@ public:
     }
     
     void dfs(vector<vector<int>>& image, int x, int y, int color, int org, vector<vector<bool>>& visited) {
-        // base case
         if (visited[x][y]) {
             return;
         }
         
-        // cout << x << ", " << y << endl;
-    
         visited[x][y] = true;
         image[x][y] = color;
         
@@ -35,6 +32,8 @@ public:
     }
     
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        if (image[sr][sc] == color) return image;
+        
         m = image.size();
         n = image[0].size();
         
