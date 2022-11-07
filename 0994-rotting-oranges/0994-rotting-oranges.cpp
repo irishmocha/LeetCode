@@ -10,14 +10,10 @@ public:
         int fresh = 0; //To keep track of all fresh oranges left
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 0) {
-                    continue;
-                }
-                
                 if (grid[i][j] == 2) {
                     q.push({i, j});
                 }
-                if (grid[i][j] == 1) {
+                else if (grid[i][j] == 1) {
                     ++fresh;
                 }
             }
