@@ -17,7 +17,7 @@ public:
         int ans = max(robFrom(i + 1, nums, memo), robFrom(i + 2, nums, memo) + nums[i]);
         
         // Cache for future use.
-        memo[i] = ans;
-        return ans;
+        // memo[i] = ans;
+        return memo[i] = ans;
     }
 };
