@@ -19,7 +19,7 @@ public:
             }
         }
         
-        int ans = -1;
+        int minute = -1;
         while(!q.empty()) {
             int sz = q.size();
             while(sz--) {
@@ -28,20 +28,18 @@ public:
                 for (int i = 0; i < 4; ++i) {
                     int r = p.first + dir[i];
                     int c = p.second + dir[i + 1];
-                    if(r>=0 && r<m && c>=0 && c<n &&grid[r][c]==1)
-                    {
-                        grid[r][c]=2;
-                        q.push({r,c});
-                        fresh--; // decrement by 1 foreach fresh orange that now is rotten
+                    if(r>=0 && r<m && c>=0 && c<n &&grid[r][c]==1) {
+                        grid[r][c] = 2;
+                        q.push({r, c});
+                        --fresh;
                     }
-                    
                 }
             }
-            ans++; //incremented after each minute passes
+            ++minute; //incremented after each minute passes
         }
         if(fresh>0) return -1; //if fresh>0 that means there are fresh oranges left
-        if(ans==-1) return 0; //we initialised with -1, so if there were no oranges it'd take 0 mins.
-        return ans;
+        if(minute==-1) return 0; //we initialised with -1, so if there were no oranges it'd take 0 mins.
+        return minute;
         
     }
 };
