@@ -5,7 +5,7 @@ private:
             answer.push_back(nums);
         }
         
-        for (int j = i; j < nums.size(); j++) {
+        for (int j = i; j < nums.size(); ++j) {
             swap(nums[i], nums[j]);
             permute(answer, nums, i + 1);
         }
