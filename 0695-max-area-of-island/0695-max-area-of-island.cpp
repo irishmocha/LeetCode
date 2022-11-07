@@ -16,6 +16,7 @@ public:
         
         visited[x][y] = true;
         ++areaSize;
+        
         for (int i = 0; i < 4; ++i) {
             int nx = x + dx[i];
             int ny = y + dy[i];
@@ -36,7 +37,6 @@ public:
         for (int i = 0; i < grid.size(); ++i) {
             for (int j = 0; j < grid[0].size(); ++j) {
                 if (!visited[i][j] && grid[i][j] == 1) {
-                    // cout << "call " << i << ", " << j << endl;
                     int t = dfs(grid, i, j, 0, visited);
                     maxArea = max(t, maxArea);
                 }
