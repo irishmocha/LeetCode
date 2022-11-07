@@ -37,8 +37,9 @@ public:
             }
             ++minute; //incremented after each minute passes
         }
-        if(fresh>0) return -1; //if fresh>0 that means there are fresh oranges left
-        if(minute==-1) return 0; //we initialised with -1, so if there were no oranges it'd take 0 mins.
+        if (fresh > 0) return -1;
+        if (minute == -1) return 0;
+        
         return minute;
         
     }
