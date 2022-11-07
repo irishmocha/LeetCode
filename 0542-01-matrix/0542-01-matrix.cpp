@@ -21,7 +21,7 @@ public:
 
         int dir[4][2] = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
         while (!q.empty()) {
-            pair<int, int> curr = q.front();
+            auto curr = q.front();
             q.pop();
             for (int i = 0; i < 4; i++) {
                 int nx = curr.first + dir[i][0];
