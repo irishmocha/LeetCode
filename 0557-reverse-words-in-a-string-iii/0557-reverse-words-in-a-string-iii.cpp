@@ -3,8 +3,9 @@ public:
     string reverseWords(string s) {
         int lastSpaceIndex = -1;
         int len = (int)s.size();
-        for (int strIndex = 0; strIndex <= len; strIndex++) {
-            if (strIndex == len || s[strIndex] == ' ') {
+        
+        for (int strIndex = 0; strIndex <= s.length(); strIndex++) {
+            if (strIndex == s.length() || s[strIndex] == ' ') {
                 int startIndex = lastSpaceIndex + 1;
                 int endIndex = strIndex - 1;
                 while (startIndex < endIndex) {
