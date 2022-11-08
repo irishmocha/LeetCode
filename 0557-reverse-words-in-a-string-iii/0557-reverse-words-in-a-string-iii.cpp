@@ -2,7 +2,8 @@ class Solution {
 public:
     string reverseWords(string s) {
         int end = -1;
-        for (int i = 0; i <= s.length(); i++) {
+        
+        for (int i = 0; i <= s.length(); ++i) {
             if (i == s.length() || s[i] == ' ') {
                 int lower = end + 1;
                 int upper = i - 1;
@@ -14,6 +15,7 @@ public:
                 end = i;
             }
         }
+        
         return s;
     }
 };
