@@ -1,19 +1,17 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        int lastSpaceIndex = -1;
-        int len = (int)s.size();
-        
-        for (int strIndex = 0; strIndex <= s.length(); strIndex++) {
-            if (strIndex == s.length() || s[strIndex] == ' ') {
-                int startIndex = lastSpaceIndex + 1;
-                int endIndex = strIndex - 1;
-                while (startIndex < endIndex) {
-                    char temp = s[startIndex];
-                    s[startIndex++] = s[endIndex];
-                    s[endIndex--] = temp;
+        int end = -1;
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s[i] == ' ') {
+                int lower = end + 1;
+                int upper = i - 1;
+                while (lower < upper) {
+                    char t = s[lower];
+                    s[lower++] = s[upper];
+                    s[upper--] = t;
                 }
-                lastSpaceIndex = strIndex;
+                end = i;
             }
         }
         return s;
