@@ -1,15 +1,20 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        string answer = "";
-        
-        stringstream ss(s);
-        string str;
-        while (getline(ss, str, ' ')) {
-            reverse(str.begin(), str.end());
-            answer += (str + " ");
+        int lastSpaceIndex = -1;
+        int len = (int)s.size();
+        for (int strIndex = 0; strIndex <= len; strIndex++) {
+            if (strIndex == len || s[strIndex] == ' ') {
+                int startIndex = lastSpaceIndex + 1;
+                int endIndex = strIndex - 1;
+                while (startIndex < endIndex) {
+                    char temp = s[startIndex];
+                    s[startIndex++] = s[endIndex];
+                    s[endIndex--] = temp;
+                }
+                lastSpaceIndex = strIndex;
+            }
         }
-        string r(answer.begin(), answer.end() - 1);
-        return r;
+        return s;
     }
 };
