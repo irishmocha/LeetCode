@@ -6,7 +6,7 @@ public:
         
         int index;
         while (lower <= upper) {
-            index = (lower + upper) / 2;
+            index = lower + (upper - lower) / 2; /*(lower + upper) / 2;*/
             if (nums[index] == target) {
                 return index;
             }
