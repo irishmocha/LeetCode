@@ -30,13 +30,12 @@ public:
                 head->left->next = head->right;
                 if (head->next != NULL) {
                     head->right->next = head->next->left;
-                }   
+                }
                 head = head->next;
             }
             leftmost = leftmost->left;
         }
         
         return root;
-        
     }
 };
