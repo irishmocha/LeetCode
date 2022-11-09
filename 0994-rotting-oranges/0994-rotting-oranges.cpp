@@ -24,7 +24,7 @@ public:
         while (!q.empty()) {
             int sz = q.size();
             while(sz--) {
-                pair<int, int> p = q.front();
+                auto p = q.front();
                 q.pop();
                 for (int i = 0; i < 4; ++i) {
                     int r = p.first + dx[i];
