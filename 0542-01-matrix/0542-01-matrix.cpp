@@ -5,6 +5,13 @@ public:
     int dx[4] = {-1, 0, 1, 0};
     int dy[4] = {0, 1, 0, -1};
     
+    bool isIn(int x, int y) {
+        if (x < 0 || x >= m || y < 0 || y >= n) {
+            return false;
+        }
+        return true;
+    }
+    
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
         if (mat.size() == 0) {
             return mat;
@@ -31,11 +38,15 @@ public:
                 int nx = curr.first + dx[i];
                 int ny = curr.second + dy[i];
                 
-                if (nx >= 0 && ny >= 0 && nx < m && ny < n) {
-                    if (dist[nx][ny] > dist[curr.first][curr.second] + 1) {
+                if (
+                    (nx >= 0 && ny >= 0 && nx < m && ny < n) &&
+                   dist[nx][ny] > dist[curr.first][curr.second] + 1
+                   
+                   ) {
+                    // if (dist[nx][ny] > dist[curr.first][curr.second] + 1) {
                         dist[nx][ny] = dist[curr.first][curr.second] + 1;
                         q.push({nx, ny});
-                    }
+                    // }
                 }
             }
         }
