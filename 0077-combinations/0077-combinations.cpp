@@ -15,9 +15,7 @@ public:
         }
     }
     vector<vector<int>> combine(int n, int k) {
-        // vector<vector<int>> answer;
         vector<int> picked;
-        
         solve(1, n, k, picked);
         return answer;
     }
