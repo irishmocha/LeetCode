@@ -1,28 +1,35 @@
 class Solution {
 public:
-    void backtrack(string& s, int i, vector<string>& answer) {
-        if (i == s.size()) {
-            answer.push_back(s);
+    vector<string>ans;
+    
+    void solve(string curr, string s, int i) {
+        // if end of the string is reached
+        if (i == s.length()) {
+            ans.push_back(curr); // push the current "curr" string to ans
             return;
         }
         
-        char c = s[i];  // save initial value
-        
-        // path1: toggle lower/upper case
-        s[i] = islower(c) ? toupper(c) : tolower(c);
-        backtrack(s, i + 1, answer);
-        
-        // path2: reset back(NOT go to this path if c is digit)
-        if (isalpha(c)) {
-            s[i] = c;
-            backtrack(s, i + 1, answer);
+        if (isdigit(s[i])) { // case 1
+            curr.push_back(s[i]);
+            solve(curr, s, i + 1);
+        }
+        else { // case 2
+            //sub case 1, considering lower case
+            string c1 = curr;
+            c1.push_back(tolower(s[i]));
+            solve(c1, s, i + 1);
+            
+            //sub case 2, considering upper case
+            string c2 = curr;
+            c2.push_back(toupper(s[i]));
+            solve(c2, s, i + 1);
         }
     }
     
-    vector<string> letterCasePermutation(string s) {
-        vector<string> answer;
-        backtrack(s, 0, answer);
-        return answer;
+    vector<string> letterCasePermutation(string S) {
+        ans.clear();
+        solve("", S, 0);
+        return ans;
     }
     
 };
