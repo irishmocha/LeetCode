@@ -21,16 +21,14 @@ public:
         }
         
         int minute = -1;
-        while(!q.empty()) {
+        while (!q.empty()) {
             int sz = q.size();
             while(sz--) {
                 pair<int, int> p = q.front();
                 q.pop();
                 for (int i = 0; i < 4; ++i) {
-                    
                     int r = p.first + dx[i];
                     int c = p.second + dy[i];
-                    
                     if(r >= 0 && r < m && c >= 0 && c < n && grid[r][c] == 1) {
                         grid[r][c] = 2;
                         q.push({r, c});
