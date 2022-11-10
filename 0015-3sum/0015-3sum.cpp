@@ -11,9 +11,9 @@ public:
             if (i != 0 && nums[i] == nums[i - 1])
                 continue;
             
-            int a = i + 1, b = nums.size() -1, t;
+            int a = i + 1, b = nums.size() -1;
             while(a < b) {
-                t = nums[i] + nums[a] + nums[b];
+                int t = nums[i] + nums[a] + nums[b];
                 if (t > 0) {
                     b--;
                 }
