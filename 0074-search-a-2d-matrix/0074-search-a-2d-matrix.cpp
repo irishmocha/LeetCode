@@ -10,8 +10,9 @@ public:
         while (x < rows && y > -1) {
             int cur = matrix[x][y];
             if (cur == target) return true;
-            if (target > cur) x++;
-            else y--;
+            // if (target > cur) x++;
+            // else y--;
+            target > cur ? x++ : y--;
         }
 
         return false;
