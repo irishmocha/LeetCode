@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        int m = matrix.size();
-        int n = matrix[0].size();
+        // int m = matrix.size();
+        // int n = matrix[0].size();
         
         int x = 0;
         int y = matrix[0].size() - 1;
