@@ -26,8 +26,8 @@ public:
                     ++lower; --upper;
                     while (nums[lower] == nums[lower - 1] && lower < upper)
                         ++lower;
-                    while (nums[lower] == nums[upper + 1] && lower < upper)
-                        --upper;
+                    // while (nums[lower] == nums[upper + 1] && lower < upper)
+                    //     --upper;
                 }
             }
         }
