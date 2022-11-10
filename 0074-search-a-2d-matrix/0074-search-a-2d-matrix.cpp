@@ -5,7 +5,7 @@ public:
         int n = matrix[0].size();
         
         int x = 0;
-        int y = n - 1;
+        int y = matrix[0].size() - 1;
 			
         while (x < matrix.size() && y > -1) {
             if (target == matrix[x][y]) return true;
