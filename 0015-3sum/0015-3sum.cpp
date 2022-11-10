@@ -15,13 +15,7 @@ public:
             int upper = nums.size() - 1;
             while(lower < upper) {
                 int t = nums[i] + nums[lower] + nums[upper];
-                if (t > 0) {
-                    --upper;
-                }
-                else if (t < 0) {
-                    ++lower;
-                }
-                else {
+                if (t == 0) {
                     ans.push_back({nums[i] , nums[lower] , nums[upper]});
                     ++lower; --upper;
                     while (nums[lower] == nums[lower - 1] && lower < upper)
@@ -29,6 +23,14 @@ public:
                     // while (nums[lower] == nums[upper + 1] && lower < upper)
                     //     --upper;
                 }
+                
+                if (t > 0) {
+                    --upper;
+                }
+                else if (t < 0) {
+                    ++lower;
+                }
+
             }
         }
         
