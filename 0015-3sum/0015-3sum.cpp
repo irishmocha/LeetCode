@@ -14,8 +14,8 @@ public:
             int lower = i + 1;
             int upper = nums.size() - 1;
             while(lower < upper) {
-                int t = nums[i] + nums[lower] + nums[upper];
-                if (t == 0) {
+                int sum = nums[i] + nums[lower] + nums[upper];
+                if (sum == 0) {
                     ans.push_back({nums[i] , nums[lower] , nums[upper]});
                     ++lower; --upper;
                     while (nums[lower] == nums[lower - 1] && lower < upper)
@@ -24,10 +24,10 @@ public:
                     //     --upper;
                 }
                 
-                if (t > 0) {
+                if (sum > 0) {
                     --upper;
                 }
-                else if (t < 0) {
+                else if (sum < 0) {
                     ++lower;
                 }
 
