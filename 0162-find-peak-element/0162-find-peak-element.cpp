@@ -7,7 +7,8 @@ public:
             int mid = lower + (upper - lower) / 2;
             if (nums[mid] < nums[mid + 1]) 
                 lower = mid + 1;
-            else upper = mid;
+            else
+                upper = mid;
         }
         
         return lower;
