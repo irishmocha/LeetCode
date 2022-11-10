@@ -13,7 +13,7 @@ public:
             
             int lower = i + 1;
             int upper = nums.size() - 1;
-            while(lower < upper) {
+            while (lower < upper) {
                 int sum = nums[i] + nums[lower] + nums[upper];
                 if (sum == 0) {
                     ans.push_back({nums[i] , nums[lower] , nums[upper]});
