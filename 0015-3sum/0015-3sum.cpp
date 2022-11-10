@@ -11,22 +11,23 @@ public:
             if (i != 0 && nums[i] == nums[i - 1])
                 continue;
             
-            int a = i + 1, b = nums.size() -1;
-            while(a < b) {
-                int t = nums[i] + nums[a] + nums[b];
+            int lower = i + 1;
+            int upper = nums.size() - 1;
+            while(lower < upper) {
+                int t = nums[i] + nums[lower] + nums[upper];
                 if (t > 0) {
-                    b--;
+                    --upper;
                 }
                 else if (t < 0) {
-                    a++;
+                    ++lower;
                 }
                 else {
-                    ans.push_back({nums[i] , nums[a] , nums[b]});
-                    a++; b--;
-                    while (nums[a] == nums[a - 1] && a < b)
-                        a++;
-                    while (nums[b] == nums[b + 1] && a < b)
-                        b--;
+                    ans.push_back({nums[i] , nums[lower] , nums[upper]});
+                    ++lower; --upper;
+                    while (nums[lower] == nums[lower - 1] && lower < upper)
+                        ++lower;
+                    while (nums[lower] == nums[upper + 1] && lower < upper)
+                        --upper;
                 }
             }
         }
