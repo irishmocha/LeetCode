@@ -29,7 +29,7 @@ public:
         while (q.size() > 1) {
             Node* curr = q.front(); q.pop();
             if (curr == nullptr) {
-                q.push(NULL);
+                q.push(nullptr);
                 continue;
             }
             
