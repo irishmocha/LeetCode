@@ -8,8 +8,8 @@ public:
         return (i==0 || i==m-1 || j==0 || j==n-1);
     }
     void solve(vector<vector<char>>& board) {
-        if(board.size()==0)
-            return ;
+        // if (board.size()==0)
+        //     return ;
         int m = board.size();
         int n = board[0].size();
         queue<pair<int,int>> q;
