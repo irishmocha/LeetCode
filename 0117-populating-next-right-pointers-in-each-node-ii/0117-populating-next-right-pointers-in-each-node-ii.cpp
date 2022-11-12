@@ -19,8 +19,9 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        if (!root) 
+        if (root == nullptr) {
             return root;
+        }
         queue<Node*> q;
         q.push(root);
         q.push(NULL);
