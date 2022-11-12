@@ -11,12 +11,9 @@ public:
             
             if (i >= (int) p.length()) {
                 int l = i - (int) p.length();
-                if (us[s[l]] == 1) {
-                    us.erase( s[l]);
-                }
-                else {
+                us[s[l]] == 1 ? 
+                    us.erase( s[l]) :
                     --us[s[l]];
-                }
             }
             
             if (up == us) {
