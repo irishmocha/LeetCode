@@ -10,11 +10,12 @@ public:
             ++us[s[i]];
             
             if (i >= (int) p.length()) {
-                if (us[s[i - (int) p.length()]] == 1) {
-                    us.erase( s[i - (int) p.length()]);
+                int l = i - (int) p.length();
+                if (us[s[l]] == 1) {
+                    us.erase( s[l]);
                 }
                 else {
-                    --us[s[i - (int) p.length()]];
+                    --us[s[l]];
                 }
             }
             
