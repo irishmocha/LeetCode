@@ -2,9 +2,9 @@ class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         int row = grid.size();
-        if (row == 0) return -1;
+        // if (row == 0) return -1;
         int col = grid[0].size();
-        if (col == 0 ) return -1;
+        // if (col == 0 ) return -1;
         if (grid[0][0] != 0 | grid[row-1][col-1] != 0) return -1;
 
         queue<pair<int, int>> q;
