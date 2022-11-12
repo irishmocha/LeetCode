@@ -2,10 +2,9 @@ class Solution {
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         int n = graph.size();
-        // int s = 0;
-        vector <int> adj[n];
+        vector<int> adj[n];
         for (int i = 0; i < n; ++i) {
-            for(auto g : graph[i]) {
+            for (auto g : graph[i]) {
                 adj[i].push_back(g);
             }
         }
