@@ -17,7 +17,7 @@ public:
                     while (!q.empty()) {
                         int x = q.front().first;
                         int y = q.front().second;
-                        grid[x][y] = '0';
+                        // grid[x][y] = '0';
                         q.pop();
                         for (int i = 0; i < 4; ++i) {
                             int nx = x + dx[i];
