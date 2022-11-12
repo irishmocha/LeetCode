@@ -22,23 +22,25 @@ public:
         if (root == nullptr) {
             return root;
         }
+        
         queue<Node*> q;
         q.push(root);
         q.push(NULL);
-        while (q.size() > 1)
-        {
+        while (q.size() > 1) {
             Node* curr = q.front();
             q.pop();
-            if (!curr)
-            {
+            if (!curr) {
                 q.push(NULL);
                 continue;
             }
+            
             curr->next = q.front();
-            if (curr->left)
+            if (curr->left) {
                 q.push(curr->left);
-            if (curr->right)
+            }
+            if (curr->right) {
                 q.push(curr->right);
+            }
         }
         return root;
     }
