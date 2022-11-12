@@ -12,15 +12,15 @@ public:
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
                 if (grid[i][j] == '1') {
-                    
                     q.push({i, j});
                     while (!q.empty()) {
-                        int x = q.front().first;
-                        int y = q.front().second;
+                        auto pos = q.front();
+                        // int x = q.front().first;
+                        // int y = q.front().second;
                         q.pop();
                         for (int i = 0; i < 4; ++i) {
-                            int nx = x + dx[i];
-                            int ny = y + dy[i];
+                            int nx = pos.first + dx[i];
+                            int ny = pos.second + dy[i];
                             if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                                 if (grid[nx][ny] == '1') {
                                     q.push({nx, ny});
