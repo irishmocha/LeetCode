@@ -25,7 +25,7 @@ public:
         
         queue<Node*> q;
         q.push(root);
-        q.push(NULL);
+        q.push(nullptr);
         while (q.size() > 1) {
             Node* curr = q.front(); q.pop();
             if (curr == nullptr) {
