@@ -12,12 +12,11 @@ public:
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
                 if (grid[i][j] == '1') {
-                    ++answer;
+                    
                     q.push({i, j});
                     while (!q.empty()) {
                         int x = q.front().first;
                         int y = q.front().second;
-                        // grid[x][y] = '0';
                         q.pop();
                         for (int i = 0; i < 4; ++i) {
                             int nx = x + dx[i];
@@ -30,6 +29,7 @@ public:
                             }
                         }
                     }
+                    ++answer;
                 }
             }
         }
