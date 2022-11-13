@@ -1,26 +1,42 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string res = "";
+        int n = s.size();
+        if (n == 0)
+            return "";
 
-        int n = s.size();
+        // dp[i][j] will be 'true' if the string from index i to j is a palindrome.
+//         bool dp[n][n];
+
+//         //Initialize with false
+
+//         memset(dp, 0, sizeof(dp));
+
+        vector<vector<bool>> dp(n, vector<bool>(n));
+        
+        //Every Single character is palindrome
         for (int i = 0; i < n; i++) {
-            string cur = func(s, i - 1, i + 1);
-            if (cur.size() > res.size()) res = cur;
-            cur = func(s, i, i + 1);
-            if (cur.size() > res.size()) res = cur;
+            dp[i][i] = true;
         }
-        
-        return res;
-    }
-    
-    string func(string s, int left, int right){
-        int n = s.size();
-        while (left >= 0 && right < n && s[left] == s[right]) {
-            left--;
-            right++;
+
+        string ans = "";
+        ans += s[0];
+
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                if (s[i] == s[j]) {
+                    //If it is of two character OR if its susbtring is palindrome.
+                    if (j - i == 1 || dp[i + 1][j - 1]) {
+                        //Then it will also a palindrome substring
+                        dp[i][j] = true;
+
+                        //Check for Longest Palindrome substring
+                        if (ans.size() < j - i + 1)
+                            ans = s.substr(i, j - i + 1);
+                    }
+                }
+            }
         }
-        
-        return s.substr(left + 1, right - left - 1);
+        return ans;
     }
 };
