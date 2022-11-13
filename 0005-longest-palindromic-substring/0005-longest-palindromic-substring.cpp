@@ -2,16 +2,10 @@ class Solution {
 public:
     string longestPalindrome(string s) {
         int n = s.size();
+        string ans = "";
         if (n == 0)
-            return "";
-
-        // dp[i][j] will be 'true' if the string from index i to j is a palindrome.
-//         bool dp[n][n];
-
-//         //Initialize with false
-
-//         memset(dp, 0, sizeof(dp));
-
+            return ans;
+        
         vector<vector<bool>> dp(n, vector<bool>(n));
         
         //Every Single character is palindrome
@@ -19,7 +13,7 @@ public:
             dp[i][i] = true;
         }
 
-        string ans = "";
+        // string ans = "";
         ans += s[0];
 
         for (int i = n - 1; i >= 0; i--) {
