@@ -4,9 +4,6 @@ public:
         if (nums.size() == 1) {
             return nums[0];
         }
-        // int* dp = new int[nums.size()];
-        // int* dp2 = new int[nums.size()];
-        
         vector<int> dp(nums.size(), 0);
         vector<int> dp2(nums.size(), 0);
         
