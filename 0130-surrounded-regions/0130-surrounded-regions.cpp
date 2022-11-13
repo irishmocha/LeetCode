@@ -22,7 +22,7 @@ public:
             for (int j = 0; j < n; ++j){
                 if (board[i][j] == 'O' && isBorder(i, j, m, n)) {
                     board[i][j] = '.';
-                    q.push(make_pair(i,j));
+                    q.push({i, j});
                 }
             }
         }
@@ -42,10 +42,10 @@ public:
         
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (board[i][j]=='O') {
+                if (board[i][j] == 'O') {
                     board[i][j] = 'X';
                 }
-				else if(board[i][j]=='.') {
+				else if(board[i][j] == '.') {
                     board[i][j] = 'O';
                 }
             }
