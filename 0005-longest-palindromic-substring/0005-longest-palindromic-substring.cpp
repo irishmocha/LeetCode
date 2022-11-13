@@ -1,7 +1,7 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        int n = s.size();
+        int n = s.length();
         string ans = "";
         if (n == 0)
             return ans;
@@ -25,7 +25,7 @@ public:
                         dp[i][j] = true;
 
                         //Check for Longest Palindrome substring
-                        if (ans.size() < j - i + 1)
+                        if (ans.length() < j - i + 1)
                             ans = s.substr(i, j - i + 1);
                     }
                 }
