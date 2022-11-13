@@ -1,18 +1,23 @@
 class Solution {
 public:
+    int m;
+    int n;
+        
+    vector<pair<int, int>> dir = {{1,0}, {-1,0}, {0, 1}, {0, -1}};
+    
     bool isSafe(int i, int j, int m, int n){
-        return (i>=0 && i<m && j>=0 && j<n);
+        return (i >= 0 && i < m && j >= 0 && j < n);
     }
     
     bool isBorder(int i, int j, int m, int n){
-        return (i==0 || i==m-1 || j==0 || j==n-1);
+        return (i == 0 || i == m - 1 || j == 0 || j == n - 1);
     }
+    
     void solve(vector<vector<char>>& board) {
-        int m = board.size();
-        int n = board[0].size();
+        m = board.size();
+        n = board[0].size();
         
         queue<pair<int,int>> q;
-        vector<pair<int, int>> dir = {{1,0}, {-1,0}, {0, 1}, {0, -1}};
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j){
                 if (board[i][j] == 'O' && isBorder(i, j, m, n)) {
@@ -23,14 +28,14 @@ public:
         }
         
         while (!q.empty()) {
-            pair<int, int> temp = q.front();
+            auto temp = q.front();
             q.pop();
-            for (int i = 0; i < dir.size(); ++i){
-                int x = temp.first + dir[i].first;
-                int y = temp.second + dir[i].second;
-                if (isSafe(x, y, m, n) && !isBorder(x, y, m, n) && board[x][y]=='O') {
-                    board[x][y]= '.';
-                    q.push(make_pair(x,y));
+            for (int i = 0; i < 4; ++i) {
+                int nx = temp.first + dir[i].first;
+                int ny = temp.second + dir[i].second;
+                if (isSafe(nx, ny, m, n) && !isBorder(nx, ny, m, n) && board[nx][ny] == 'O') {
+                    board[nx][ny]= '.';
+                    q.push({nx, ny});
                 }
             }
         }
