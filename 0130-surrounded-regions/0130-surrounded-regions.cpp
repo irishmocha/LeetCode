@@ -19,7 +19,7 @@ public:
         
         queue<pair<int,int>> q;
         for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j){
+            for (int j = 0; j < n; ++j) {
                 if (board[i][j] == 'O' && isBorder(i, j, m, n)) {
                     board[i][j] = '.';
                     q.push({i, j});
