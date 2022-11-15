@@ -27,18 +27,18 @@ public:
         q.push(root);
         q.push(nullptr);
         while (q.size() > 1) {
-            Node* curr = q.front(); q.pop();
-            if (curr == nullptr) {
+            Node* now = q.front(); q.pop();
+            if (now == nullptr) {
                 q.push(nullptr);
                 continue;
             }
             
-            curr->next = q.front();
-            if (curr->left) {
-                q.push(curr->left);
+            now->next = q.front();
+            if (now->left) {
+                q.push(now->left);
             }
-            if (curr->right) {
-                q.push(curr->right);
+            if (now->right) {
+                q.push(now->right);
             }
         }
         return root;
