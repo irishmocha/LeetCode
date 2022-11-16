@@ -1,6 +1,8 @@
 class Solution {
 public:
+    int n, k;
     vector<vector<int>> answer;
+    
     
     void solve(int s, int& n, int k, vector<int>& picked) {
         if (k == 0) {
